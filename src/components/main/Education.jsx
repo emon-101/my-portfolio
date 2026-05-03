@@ -48,8 +48,7 @@ const Education = () => {
         {/* 🔥 Animated Line */}
         <motion.div
           style={{ scaleY }}
-          className="absolute origin-top left-4 md:left-[45%] top-0 w-0.5 h-full 
-          bg-linear-to-b from-blue-500 to-purple-500"
+          className="absolute origin-top left-4 md:left-[45%] top-0 w-0.5 h-full bg-linear-to-b from-blue-500 to-purple-500"
         />
 
         <div className="space-y-12">
