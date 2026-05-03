@@ -7,7 +7,7 @@ import Link from "next/link";
 
 const Hero = () => {
     return (
-        <section className="relative min-h-screen flex items-center px-6 md:px-10 text-white overflow-hidden">
+        <section className="relative min-h-screen flex items-center px-6 md:px-10 text-white overflow-hidden pt-20">
 
       {/* 🌌 Background */}
       <div className="absolute inset-0 -z-10 bg-linear-to-br from-black via-[#0f172a] to-[#020617]" />
