@@ -1,6 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useScroll, useSpring } from "framer-motion";
+import { useRef } from "react";
 
 const timeline = [
   {
@@ -21,8 +22,17 @@ const timeline = [
 ];
 
 const AboutMe = () => {
+    const ref = useRef(null);
+    const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"],
+  });
+  const scaleY = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+  });
   return (
-    <section className="py-24 px-6 md:px-10 text-white relative">
+    <section ref={ref} className="py-24 px-6 md:px-10 text-white relative">
       {/* 🌌 Background */}
       <div className="absolute inset-0 -z-10 bg-linear-to-b from-transparent via-[#020617] to-black" />
 
@@ -73,7 +83,10 @@ const AboutMe = () => {
         {/* 🕒 Timeline */}
         <div className="mt-20 relative px-6 sm:px-8 md:px-10">
           {/* 🔵 Timeline Line */}
-          <div className="absolute left-4 md:left-1/2 md:-translate-x-1/2 w-0.5 h-full bg-white/20" />
+          <motion.div
+            style={{ scaleY }}
+            className="absolute origin-top md:right-1/2 top-0 w-0.5 h-full bg-linear-to-b from-blue-500 to-purple-500"
+          />
 
           <div className="space-y-12">
             {timeline.map((item, i) => (
@@ -85,7 +98,7 @@ const AboutMe = () => {
                 className="relative flex flex-col md:flex-row items-start md:items-center"
               >
                 {/* 🔵 Dot */}
-                <div className="absolute left-2 md:left-1/2 md:-translate-x-1/2 w-4 h-4 bg-blue-500 rounded-full border-4 border-black shadow-[0_0_10px_rgba(59,130,246,0.8)] z-10" />
+                <div className="absolute -left-2 md:left-1/2 md:-translate-x-1/2 w-4 h-4 bg-blue-500 rounded-full border-4 border-black shadow-[0_0_10px_rgba(59,130,246,0.8)] z-10" />
 
                 {/* 📦 Content */}
                 <div

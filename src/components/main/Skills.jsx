@@ -52,8 +52,14 @@ const Skills = () => {
             speed={50}
             direction="right"
             gradient={false}
-            className="mt-6"
+            className="my-6"
           >
+            {skills.map((skill, i) => (
+              <SkillCard key={i} skill={skill} />
+            ))}
+          </Marquee>
+          {/* 🔥 Row 3 */}
+          <Marquee speed={50} gradient={false}>
             {skills.map((skill, i) => (
               <SkillCard key={i} skill={skill} />
             ))}
