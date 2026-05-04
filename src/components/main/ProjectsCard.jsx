@@ -14,7 +14,7 @@ const ProjectCard = ({ project, index }) => {
     >
 
       {/* 📸 Image (FIXED SIZE) */}
-      <div className="relative w-full h-[220px] sm:h-[260px] md:h-full overflow-hidden">
+      <div className="relative w-full h-55 sm:h-65 md:h-full overflow-hidden">
         <motion.div whileHover={{ scale: 1.08 }} className="w-full h-full">
           <Image
             src={project.image}
@@ -25,7 +25,7 @@ const ProjectCard = ({ project, index }) => {
         </motion.div>
 
         {/* 🔥 Gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+        <div className="absolute inset-0 bg-linear-to-t from-black/50 to-transparent" />
       </div>
 
       {/* 📄 Content */}
