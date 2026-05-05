@@ -3,7 +3,6 @@
 import Link from "next/link";
 import ProjectCard from "./ProjectsCard";
 
-
 const projects = [
   {
     title: "Skill Sphere",
@@ -36,8 +35,8 @@ const projects = [
 
 const Projects = () => {
   return (
-     <section className="py-24 px-4 sm:px-6 md:px-10 text-white">
-
+    // ✅ ADDED: overflow-x-hidden on section to guard against any animation bleed
+    <section className="py-24 px-4 sm:px-6 md:px-10 text-white overflow-x-hidden">
       <div className="max-w-6xl mx-auto">
 
         {/* 🎯 Title */}
@@ -46,7 +45,7 @@ const Projects = () => {
         </h2>
 
         {/* 📦 Cards */}
-        <div className="space-y-12">
+        <div className="space-y-10 sm:space-y-12">
           {projects.map((project, i) => (
             <ProjectCard key={i} project={project} index={i} />
           ))}
