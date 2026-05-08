@@ -14,8 +14,7 @@ const ProjectCard = ({ project, index }) => {
       viewport={{ once: true }}
       transition={{ duration: 0.6 }}
       className="grid grid-cols-1 md:grid-cols-2 items-stretch
-        bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl overflow-hidden
-        hover:shadow-[0_0_30px_rgba(59,130,246,0.25)] transition-shadow"
+        bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl overflow-hidden hover:shadow-[0_0_30px_rgba(59,130,246,0.25)] transition-shadow"
     >
       {/* 🖼 Image */}
       <div
