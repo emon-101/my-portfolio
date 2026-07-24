@@ -67,7 +67,7 @@ const AboutMe = () => {
 
         {/* ⚡ Skills */}
         <div className="mt-16 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 text-center">
-          {["React", "Next.js", "Tailwind", "MongoDB"].map((skill, i) => (
+          {["React", "Next.js", "Node.js", "MongoDB"].map((skill, i) => (
             <motion.div
               key={i}
               initial={{ opacity: 0, y: 30 }}
