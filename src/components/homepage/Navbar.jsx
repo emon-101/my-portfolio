@@ -6,6 +6,13 @@ import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
 import { HiMenu, HiX } from "react-icons/hi";
 import Link from "next/link";
 
+const navLinks = [
+  { name: "Home", href: "/" },
+  { name: "About", href: "#about" },
+  { name: "Projects", href: "#projects" },
+  { name: "Contact", href: "#contact" },
+];
+
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -15,17 +22,22 @@ const Navbar = () => {
         <div className="max-w-6xl mx-auto flex justify-between items-center px-6 py-4">
           {/* Logo */}
           <h1 className="text-xl font-bold tracking-wide text-white">
-            <Link href={'/'}>Emon<span className="text-blue-400">.dev</span></Link>
+            <Link href={"/"}>
+              Emon<span className="text-blue-400">.dev</span>
+            </Link>
           </h1>
 
           {/* Desktop Menu */}
           <ul className="hidden md:flex gap-8 text-sm text-white/90">
-            {["About", "Projects", "Contact"].map((item, i) => (
-              <li
-                key={i}
-                className="relative cursor-pointer group text-white/90 hover:text-white transition"
-              >
-                {item}
+            {navLinks.map((link) => (
+              <li key={link.name} className="relative group">
+                <Link
+                  href={link.href}
+                  className="text-white/90 hover:text-white transition"
+                >
+                  {link.name}
+                </Link>
+
                 <span className="absolute left-0 -bottom-1 w-0 h-0.5 bg-blue-400 transition-all group-hover:w-full"></span>
               </li>
             ))}
@@ -85,15 +97,20 @@ const Navbar = () => {
             >
               {/* Menu */}
               <ul className="flex flex-col gap-8 text-lg mt-20 text-white">
-                {["About", "Projects", "Contact"].map((item, i) => (
+                {navLinks.map((link, i) => (
                   <motion.li
-                    key={i}
-                    initial={{ opacity: 0, x: 30, scale: 0.9 }}
-                    animate={{ opacity: 1, x: 0, scale: 1 }}
+                    key={link.name}
+                    initial={{ opacity: 0, x: 30 }}
+                    animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: i * 0.1 }}
-                    className="cursor-pointer text-white/90 hover:text-blue-400 transition"
                   >
-                    {item}
+                    <Link
+                      href={link.href}
+                      onClick={() => setIsOpen(false)}
+                      className="text-white/90 hover:text-blue-400 transition"
+                    >
+                      {link.name}
+                    </Link>
                   </motion.li>
                 ))}
               </ul>

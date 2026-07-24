@@ -6,16 +6,14 @@ import { FaGithub, FaLinkedin, FaTwitter, FaPlay } from "react-icons/fa";
 import Link from "next/link";
 
 const Hero = () => {
-    return (
-        <section className="relative min-h-screen flex items-center px-6 md:px-10 text-white overflow-hidden pt-20">
-
+  return (
+    <section className="relative min-h-screen flex items-center px-6 md:px-10 text-white overflow-hidden pt-20">
       {/* 🌌 Background */}
       <div className="absolute inset-0 -z-10 bg-linear-to-br from-black via-[#0f172a] to-[#020617]" />
       <div className="absolute top-10 left-10 w-72 h-72 bg-purple-500 opacity-30 blur-3xl rounded-full" />
       <div className="absolute bottom-10 right-10 w-72 h-72 bg-blue-500 opacity-30 blur-3xl rounded-full" />
 
       <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-
         {/* 🧠 LEFT SIDE */}
         <motion.div
           initial={{ opacity: 0, x: -50 }}
@@ -49,31 +47,38 @@ const Hero = () => {
           </h2>
 
           <p className="mt-4 text-gray-300 max-w-md">
-            I build modern, fast and scalable web applications with clean UI/UX and high performance.
+            I build modern, fast and scalable web applications with clean UI/UX
+            and high performance.
           </p>
 
           {/* 🔘 Buttons */}
           <div className="mt-6 flex flex-wrap gap-4">
-            <a href="https://drive.google.com/file/d/1dp9A2U24BGzpqFfg-p78bNjJL1PtXevM/view?usp=sharing" target="_blank">
-              <button className="px-6 py-3 rounded-xl bg-linear-to-r from-blue-500 to-purple-500 hover:scale-105 transition cursor-pointer">
+            <a
+              href="https://drive.google.com/file/d/1dp9A2U24BGzpqFfg-p78bNjJL1PtXevM/view?usp=sharing"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-6 py-3 rounded-xl bg-linear-to-r from-blue-500 to-purple-500 hover:scale-105 transition"
+            >
               Open Resume
-            </button>
             </a>
 
-            <button className="px-6 py-3 rounded-xl border border-white/30 hover:bg-white/10 transition">
+            <Link
+              href="#contact"
+              className="px-6 py-3 rounded-xl border border-white/30 hover:bg-white/10 transition"
+            >
               Contact Me
-            </button>
+            </Link>
           </div>
 
           {/* 🌐 Social Icons */}
           <div className="flex gap-4 mt-6 text-xl">
-            <Link href={'https://github.com/emon-101'} target="_blank">
+            <Link href={"https://github.com/emon-101"} target="_blank">
               <FaGithub className="cursor-pointer hover:scale-110 hover:text-gray-300 transition" />
             </Link>
-            <Link href={'https://www.linkedin.com/in/emon101/'} target="_blank">
+            <Link href={"https://www.linkedin.com/in/emon101/"} target="_blank">
               <FaLinkedin className="cursor-pointer hover:scale-110 hover:text-gray-300 transition" />
             </Link>
-            <Link href={'https://x.com/EmonHossain26'} target="_blank">
+            <Link href={"https://x.com/EmonHossain26"} target="_blank">
               <FaTwitter className="cursor-pointer hover:scale-110 hover:text-gray-300 transition" />
             </Link>
           </div>
@@ -96,17 +101,16 @@ const Hero = () => {
 
             {/* Image */}
             <Image
-              src="/profile_img.jpeg" // put your image in /public
+              src="/profile_img.jpeg"
               alt="Emon Hossain"
               fill
               className="object-cover rounded-2xl border border-white/20"
             />
           </motion.div>
         </motion.div>
-
       </div>
     </section>
-    );
+  );
 };
 
 export default Hero;
