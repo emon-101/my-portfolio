@@ -54,9 +54,11 @@ const Hero = () => {
 
           {/* 🔘 Buttons */}
           <div className="mt-6 flex flex-wrap gap-4">
-            <button className="px-6 py-3 rounded-xl bg-linear-to-r from-blue-500 to-purple-500 hover:scale-105 transition">
-              View My Work
+            <a href="https://drive.google.com/file/d/1dp9A2U24BGzpqFfg-p78bNjJL1PtXevM/view?usp=sharing" target="_blank">
+              <button className="px-6 py-3 rounded-xl bg-linear-to-r from-blue-500 to-purple-500 hover:scale-105 transition cursor-pointer">
+              Open Resume
             </button>
+            </a>
 
             <button className="px-6 py-3 rounded-xl border border-white/30 hover:bg-white/10 transition">
               Contact Me

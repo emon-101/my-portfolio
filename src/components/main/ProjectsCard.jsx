@@ -18,7 +18,7 @@ const ProjectCard = ({ project, index }) => {
     >
       {/* 🖼 Image */}
       <div
-        className={`relative w-full h-56 sm:h-64 md:h-full min-h-[280px]
+        className={`relative w-full h-56 sm:h-64 md:h-full min-h-70
           ${isReverse ? "md:order-2" : "md:order-1"}`}
           // ✅ FIXED: h-55/h-65 are invalid Tailwind classes → use h-56, h-64
           // ✅ FIXED: min-h-[280px] ensures image has height on md when in grid
@@ -39,7 +39,7 @@ const ProjectCard = ({ project, index }) => {
         </motion.div>
 
         {/* ✅ FIXED: was bg-linear-to-t — invalid, correct is bg-gradient-to-t */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent pointer-events-none" />
+        <div className="absolute inset-0 bg-linear-to-t from-black/50 to-transparent pointer-events-none" />
       </div>
 
       {/* 📄 Content */}

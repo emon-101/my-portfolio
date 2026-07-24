@@ -15,7 +15,7 @@ const Navbar = () => {
         <div className="max-w-6xl mx-auto flex justify-between items-center px-6 py-4">
           {/* Logo */}
           <h1 className="text-xl font-bold tracking-wide text-white">
-            Emon<span className="text-blue-400">.dev</span>
+            <Link href={'/'}>Emon<span className="text-blue-400">.dev</span></Link>
           </h1>
 
           {/* Desktop Menu */}
