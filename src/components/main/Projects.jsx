@@ -5,6 +5,24 @@ import ProjectCard from "./ProjectsCard";
 
 const projects = [
   {
+    title: "PulseLink",
+    description:
+      "PulseLink is a full-stack blood donation platform that connects donors with people who need them most — built end-to-end with the MERN stack and Next.js, from authentication and role-based dashboards to real-time donation request tracking and JWT-secured APIs.",
+    image: "/projects/pulselink.png",
+    tech: ["Next.js", "React", "Node.js", "Express", "MongoDB", "Tailwind", "JWT"],
+    github: "https://github.com/emon-101/pulselink-client",
+    live: "https://pulselink-client.vercel.app/",
+  },
+  {
+    title: "IdeaVault",
+    description:
+      "IdeaVault is an open platform built for founders, builders, and dreamers — a place where startup ideas don't die in notebooks, but instead get shared, challenged, and refined by a community that cares.",
+    image: "/projects/ideavault.png",
+    tech: ["Next.js", "React", "Node.js", "Express", "MongoDB", "Tailwind", "JWT"],
+    github: "https://github.com/emon-101/ideavault",
+    live: "https://ideavault-fcaq.vercel.app/",
+  },
+  {
     title: "Skill Sphere",
     description:
       "Modern online learning platform with authentication, course system, and responsive UI.",
@@ -12,25 +30,7 @@ const projects = [
     tech: ["Next.js", "MongoDB", "Tailwind", "JWT"],
     github: "https://github.com/emon-101/skill-sphere",
     live: "https://skill-sphere-eh.vercel.app/",
-  },
-  {
-    title: "DigiTools",
-    description:
-      "Collection of useful developer tools with clean UI and optimized performance.",
-    image: "/projects/digitools.png",
-    tech: ["React", "Tailwind", "Netlify"],
-    github: "https://github.com/emon-101/DigiTools",
-    live: "https://digitools-eh.netlify.app/",
-  },
-  {
-    title: "Keen Keeper",
-    description:
-      "Task management app with real-time updates and clean user experience.",
-    image: "/projects/keenkeeper.png",
-    tech: ["Next.js", "MongoDB", "Auth"],
-    github: "https://github.com/emon-101/keen-keeper",
-    live: "https://keen-keeper-eh.vercel.app/",
-  },
+  }
 ];
 
 const Projects = () => {

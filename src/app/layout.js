@@ -25,6 +25,7 @@ export default function RootLayout({ children }) {
     <html
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      suppressHydrationWarning
     >
       <body className="min-h-full flex flex-col">
         <div className="fixed inset-0 -z-10 bg-linear-to-br from-[#0f0f0f] via-[#1a1a2e] to-[#16213e]" />

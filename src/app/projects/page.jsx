@@ -2,6 +2,15 @@ import ProjectCard from "@/components/main/ProjectsCard";
 
 const allProjects = [
   {
+    title: "PulseLink",
+    description:
+      "PulseLink is a full-stack blood donation platform that connects donors with people who need them most — built end-to-end with the MERN stack and Next.js, from authentication and role-based dashboards to real-time donation request tracking and JWT-secured APIs.",
+    image: "/projects/pulselink.png",
+    tech: ["Next.js", "React", "Node.js", "Express", "MongoDB", "Tailwind", "JWT"],
+    github: "https://github.com/emon-101/pulselink-client",
+    live: "https://pulselink-client.vercel.app/",
+  },
+  {
     title: "Skill Sphere",
     description:
       "Modern online learning platform with authentication, course system, and responsive UI.",
