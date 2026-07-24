@@ -101,7 +101,7 @@ const Hero = () => {
 
             {/* Image */}
             <Image
-              src="/profile_img.jpeg"
+              src="/portfolio_profile.jpeg"
               alt="Emon Hossain"
               fill
               className="object-cover rounded-2xl border border-white/20"
