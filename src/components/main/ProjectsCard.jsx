@@ -76,7 +76,7 @@ const ProjectCard = ({ project, index }) => {
         <Link
           href={`/projects/${project.slug}`}
           className="group inline-flex items-center gap-2 mt-1 px-5 py-2.5 rounded-lg
-            bg-gradient-to-r from-blue-500 to-purple-500 text-sm font-semibold text-white
+            bg-linear-to-r from-blue-500 to-purple-500 text-sm font-semibold text-white
             hover:opacity-90 transition-opacity"
         >
           View details
