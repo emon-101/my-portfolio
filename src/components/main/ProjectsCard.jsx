@@ -2,26 +2,25 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
+import Link from "next/link";
+import { FaGithub, FaExternalLinkAlt, FaArrowRight } from "react-icons/fa";
 
 const ProjectCard = ({ project, index }) => {
   const isReverse = index % 2 !== 0;
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 40 }}         // ✅ FIXED: was x: ±80 — caused horizontal scroll on mobile
+      initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.6 }}
       className="grid grid-cols-1 md:grid-cols-2 items-stretch
         bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl overflow-hidden hover:shadow-[0_0_30px_rgba(59,130,246,0.25)] transition-shadow"
     >
-      {/* 🖼 Image */}
+      {/* Image */}
       <div
         className={`relative w-full h-56 sm:h-64 md:h-full min-h-70
           ${isReverse ? "md:order-2" : "md:order-1"}`}
-          // ✅ FIXED: h-55/h-65 are invalid Tailwind classes → use h-56, h-64
-          // ✅ FIXED: min-h-[280px] ensures image has height on md when in grid
       >
         <motion.div
           whileHover={{ scale: 1.06 }}
@@ -38,15 +37,20 @@ const ProjectCard = ({ project, index }) => {
           />
         </motion.div>
 
-        {/* ✅ FIXED: was bg-linear-to-t — invalid, correct is bg-gradient-to-t */}
         <div className="absolute inset-0 bg-linear-to-t from-black/50 to-transparent pointer-events-none" />
+
+        {/* Featured badge */}
+        {project.featured && (
+          <span className="absolute top-4 left-4 text-xs px-3 py-1 rounded-full bg-blue-500/90 text-white font-medium shadow-lg">
+            Featured
+          </span>
+        )}
       </div>
 
-      {/* 📄 Content */}
+      {/* Content */}
       <div
         className={`p-6 sm:p-8 flex flex-col justify-center gap-4 items-start text-left
           ${isReverse ? "md:order-1 md:text-right md:items-end" : "md:order-2"}`}
-          // ✅ FIXED: base is always left/start (mobile), md: applies reverse alignment only on desktop
       >
         <h3 className="text-xl md:text-2xl font-bold text-white">
           {project.title}
@@ -56,7 +60,7 @@ const ProjectCard = ({ project, index }) => {
           {project.description}
         </p>
 
-        {/* 🏷 Tech */}
+        {/* Tech */}
         <div className={`flex flex-wrap gap-2 ${isReverse ? "md:justify-end" : ""}`}>
           {project.tech.map((item, i) => (
             <span
@@ -68,21 +72,32 @@ const ProjectCard = ({ project, index }) => {
           ))}
         </div>
 
-        {/* 🔗 Links */}
-        <div className={`flex gap-6 text-sm md:text-base ${isReverse ? "md:justify-end" : ""}`}>
+        {/* Primary CTA — View details */}
+        <Link
+          href={`/projects/${project.slug}`}
+          className="group inline-flex items-center gap-2 mt-1 px-5 py-2.5 rounded-lg
+            bg-gradient-to-r from-blue-500 to-purple-500 text-sm font-semibold text-white
+            hover:opacity-90 transition-opacity"
+        >
+          View details
+          <FaArrowRight className="text-xs transition-transform group-hover:translate-x-1" />
+        </Link>
+
+        {/* Secondary links — GitHub / Live */}
+        <div className={`flex gap-6 text-sm ${isReverse ? "md:justify-end" : ""}`}>
           <a
             href={project.github}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 text-gray-300 hover:text-blue-400 transition-colors"
+            className="flex items-center gap-2 text-gray-400 hover:text-blue-400 transition-colors"
           >
-            <FaGithub /> GitHub
+            <FaGithub /> Code
           </a>
           <a
             href={project.live}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 text-gray-300 hover:text-blue-400 transition-colors"
+            className="flex items-center gap-2 text-gray-400 hover:text-blue-400 transition-colors"
           >
             <FaExternalLinkAlt /> Live
           </a>
