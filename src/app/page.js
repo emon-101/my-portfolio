@@ -13,7 +13,9 @@ export default function Home() {
         <AboutMe />
       </section>
       <Education />
-      <Skills />
+      <section id="skills">
+        <Skills />
+      </section>
       <section id="projects">
         <Projects />
       </section>
