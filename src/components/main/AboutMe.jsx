@@ -2,23 +2,37 @@
 
 import { motion, useScroll, useSpring } from "framer-motion";
 import { useRef } from "react";
+import { FaGithub, FaLinkedin, FaFileDownload } from "react-icons/fa";
 
 const timeline = [
   {
     year: "2023",
-    title: "Started Web Development",
+    title: "Started web development",
     desc: "Began learning HTML, CSS, and JavaScript fundamentals.",
   },
   {
     year: "2024",
-    title: "Frontend Development",
-    desc: "Focused on React and built multiple responsive projects.",
+    title: "Frontend development",
+    desc: "Focused on React, building multiple responsive, animated interfaces.",
   },
   {
     year: "2025",
-    title: "Next.js & Full Stack",
-    desc: "Started building full-stack apps with Next.js and MongoDB.",
+    title: "Full-stack development",
+    desc: "Built PulseLink (blood donation platform) and IdeaVault (startup idea-sharing platform) with Next.js, MongoDB, and TypeScript.",
   },
+  {
+    year: "2026",
+    title: "Shopigo — in progress",
+    desc: "Building a multi-vendor e-commerce marketplace as a full-stack TypeScript portfolio project.",
+    current: true,
+  },
+];
+
+const quickFacts = [
+  { label: "Based in", value: "Bangladesh" },
+  { label: "Status", value: "CS student" },
+  { label: "Focus", value: "MERN + Next.js" },
+  { label: "Open to", value: "Internships & junior roles" },
 ];
 
 const AboutMe = () => {
@@ -50,37 +64,75 @@ const AboutMe = () => {
           About <span className="text-blue-400">Me</span>
         </motion.h2>
 
-        {/* About Card */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          className="bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl p-8 text-gray-300 max-w-3xl mx-auto text-center"
-        >
-          <p>
-            I&#39;m{" "}
-            <span className="text-white font-semibold">Emon Hossain</span>, a
-            React & Next.js developer focused on building modern and scalable
-            web applications.
-          </p>
-          <p className="mt-4">
-            I specialize in performance, clean UI, and user-focused design. I
-            enjoy solving problems and continuously improving my skills.
-          </p>
-        </motion.div>
+        {/* Bio + Quick Facts */}
+        <div className="grid grid-cols-1 md:grid-cols-5 gap-6 max-w-4xl mx-auto mb-10">
+          {/* Bio card */}
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            className="md:col-span-3 bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl p-8 text-gray-300"
+          >
+            <p>
+              I&#39;m{" "}
+              <span className="text-white font-semibold">Emon Hossain</span>,
+              a full-stack developer specializing in the MERN stack and
+              Next.js. I build production-ready, portfolio-grade applications
+              with TypeScript, from database schema to deployed UI.
+            </p>
+            <p className="mt-4">
+              Currently a Computer Science student, actively shipping
+              full-stack projects and preparing for developer roles — with a
+              focus on clean architecture, authentication, and real-world
+              data modeling.
+            </p>
 
-        {/* Skills */}
-        <div className="mt-16 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 text-center">
-          {["React", "Next.js", "Node.js", "MongoDB"].map((skill, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: i * 0.1 }}
-              className="bg-white/10 backdrop-blur-md p-4 rounded-xl border border-white/20 hover:scale-105 transition"
-            >
-              {skill}
-            </motion.div>
-          ))}
+            {/* CTAs */}
+            <div className="flex flex-wrap gap-3 mt-6">
+              <a
+                href="https://github.com/emon-101"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-sm bg-white/10 hover:bg-white/20 border border-white/20 px-4 py-2 rounded-lg transition"
+              >
+                <FaGithub /> GitHub
+              </a>
+              <a
+                href="https://www.linkedin.com/in/emon101/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-sm bg-white/10 hover:bg-white/20 border border-white/20 px-4 py-2 rounded-lg transition"
+              >
+                <FaLinkedin /> LinkedIn
+              </a>
+              <a
+                href="/resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-sm bg-blue-500/20 hover:bg-blue-500/30 border border-blue-400/40 text-blue-300 px-4 py-2 rounded-lg transition"
+              >
+                <FaFileDownload /> Resume
+              </a>
+            </div>
+          </motion.div>
+
+          {/* Quick facts panel */}
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1 }}
+            className="md:col-span-2 bg-white/5 border border-white/15 rounded-2xl p-6 flex flex-col justify-center gap-4"
+          >
+            {quickFacts.map((fact) => (
+              <div key={fact.label}>
+                <p className="text-xs uppercase tracking-widest text-gray-500">
+                  {fact.label}
+                </p>
+                <p className="text-sm text-white/90 font-medium mt-0.5">
+                  {fact.value}
+                </p>
+              </div>
+            ))}
+          </motion.div>
         </div>
 
         {/* Timeline */}
@@ -123,7 +175,19 @@ const AboutMe = () => {
                       }
                     `}
                   >
-                    <div className="bg-white/10 backdrop-blur-lg border border-white/20 rounded-xl p-6 hover:-translate-y-2 transition duration-300">
+                    <div
+                      className={`bg-white/10 backdrop-blur-lg border rounded-xl p-6 hover:-translate-y-2 transition duration-300
+                        ${
+                          item.current
+                            ? "border-blue-500 shadow-[0_0_20px_rgba(59,130,246,0.4)]"
+                            : "border-white/20"
+                        }`}
+                    >
+                      {item.current && (
+                        <span className="inline-block text-xs px-3 py-1 mb-2 rounded-full bg-blue-500/20 text-blue-400 border border-blue-400">
+                          In progress
+                        </span>
+                      )}
                       <h3 className="text-blue-400 font-bold text-sm md:text-base">
                         {item.year}
                       </h3>
@@ -149,7 +213,11 @@ const AboutMe = () => {
           </div>
           <div>
             <h3 className="text-2xl font-bold text-blue-400">1+</h3>
-            <p className="text-gray-400">Years Learning</p>
+            <p className="text-gray-400">Years coding</p>
+          </div>
+          <div>
+            <h3 className="text-2xl font-bold text-blue-400">MERN</h3>
+            <p className="text-gray-400">+ TypeScript</p>
           </div>
         </div>
       </div>
