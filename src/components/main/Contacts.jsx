@@ -8,9 +8,12 @@ import { FaGithub, FaLinkedin, FaTwitter, FaEnvelope } from "react-icons/fa";
 const Contacts = () => {
   const form = useRef();
   const [success, setSuccess] = useState(false);
+  const [sending, setSending] = useState(false);
 
   const sendEmail = (e) => {
     e.preventDefault();
+    if (sending) return;
+    setSending(true);
 
     emailjs
       .sendForm(
@@ -25,22 +28,20 @@ const Contacts = () => {
         setTimeout(() => setSuccess(false), 3000);
       })
       .catch(() => {
-        alert("Something went wrong ❌");
-      });
+        alert("Something went wrong. Please try again.");
+      })
+      .finally(() => setSending(false));
   };
 
   return (
-    // ✅ FIXED: Added overflow-x-hidden to prevent any animation bleed causing horizontal scroll
     <section className="py-24 px-4 sm:px-6 md:px-10 text-white relative overflow-x-hidden">
 
-      {/* 🌌 Background — ✅ FIXED: bg-linear-to-b → bg-gradient-to-b (invalid Tailwind class) */}
-      <div className="absolute inset-0 -z-10 bg-gradient-to-b from-black via-[#020617] to-black" />
+      {/* Background */}
+      <div className="absolute inset-0 -z-10 bg-linear-to-b from-black via-[#020617] to-black" />
 
-      {/* ✅ FIXED: Added grid-cols-1 base so columns stack on mobile, gap-6 on mobile */}
       <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10 items-center">
 
-        {/* 🔹 LEFT: Contact Info */}
-        {/* ✅ FIXED: x: -40 → y: 30 — horizontal x animation caused overflow scroll on mobile */}
+        {/* LEFT: Contact Info */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -94,8 +95,7 @@ const Contacts = () => {
           </div>
         </motion.div>
 
-        {/* 🔹 RIGHT: Form */}
-        {/* ✅ FIXED: x: 40 → y: 30 — same horizontal overflow issue */}
+        {/* RIGHT: Form */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -123,6 +123,9 @@ const Contacts = () => {
                 focus:border-blue-400 outline-none text-sm sm:text-base placeholder-gray-500"
             />
 
+            {/* Fallback reply-to field — also set "Reply To" = {{user_email}} in your EmailJS template */}
+            <input type="hidden" name="reply_to" />
+
             <textarea
               name="message"
               rows="5"
@@ -132,22 +135,23 @@ const Contacts = () => {
                 focus:border-blue-400 outline-none resize-none text-sm sm:text-base placeholder-gray-500"
             />
 
-            {/* ✅ FIXED: bg-linear-to-r → bg-gradient-to-r (invalid Tailwind class) */}
             <motion.button
-              whileHover={{ scale: 1.03 }}
-              whileTap={{ scale: 0.97 }}
+              whileHover={{ scale: sending ? 1 : 1.03 }}
+              whileTap={{ scale: sending ? 1 : 0.97 }}
               type="submit"
-              className="w-full py-3 rounded-lg bg-gradient-to-r from-blue-500 to-purple-500
-                font-semibold text-sm sm:text-base hover:opacity-90 transition-opacity"
+              disabled={sending}
+              className="w-full py-3 rounded-lg bg-linear-to-r from-blue-500 to-purple-500
+                font-semibold text-sm sm:text-base hover:opacity-90 transition-opacity
+                disabled:opacity-60 disabled:cursor-not-allowed"
             >
-              Send Message
+              {sending ? "Sending..." : "Send Message"}
             </motion.button>
 
           </form>
         </motion.div>
       </div>
 
-      {/* ✅ Success Popup */}
+      {/* Success Popup */}
       <AnimatePresence>
         {success && (
           <motion.div
@@ -164,7 +168,6 @@ const Contacts = () => {
               className="w-full max-w-sm bg-white/10 backdrop-blur-xl border border-white/20
                 rounded-2xl p-8 sm:p-10 text-center shadow-[0_0_40px_rgba(59,130,246,0.3)]"
             >
-              {/* ✔ Checkmark */}
               <motion.svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="w-16 h-16 mx-auto text-green-400"
@@ -186,7 +189,7 @@ const Contacts = () => {
               <h3 className="text-xl font-semibold mt-4">Message Sent!</h3>
 
               <p className="text-gray-400 mt-2 text-sm">
-                Thanks for reaching out. I&39;ll reply soon.
+                Thanks for reaching out. I&#39;ll reply soon.
               </p>
             </motion.div>
           </motion.div>
