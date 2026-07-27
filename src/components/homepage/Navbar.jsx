@@ -122,9 +122,18 @@ const Navbar = () => {
 
               {/* Social */}
               <div className="flex gap-6 text-2xl text-white/80">
-                <FaGithub className="hover:scale-110 hover:text-white transition" />
-                <FaLinkedin className="hover:scale-110 hover:text-white transition" />
-                <FaSquareXTwitter className="hover:scale-110 hover:text-white transition" />
+                <Link href="https://github.com/emon-101" target="_blank">
+                  <FaGithub className="hover:scale-110 transition" />
+                </Link>
+                <Link
+                  href="https://www.linkedin.com/in/emon101/"
+                  target="_blank"
+                >
+                  <FaLinkedin className="hover:scale-110 transition" />
+                </Link>
+                <Link href="https://x.com/EmonHossain26" target="_blank">
+                  <FaSquareXTwitter className="hover:scale-110 transition" />
+                </Link>
               </div>
             </motion.div>
           </>
