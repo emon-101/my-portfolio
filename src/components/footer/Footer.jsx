@@ -2,7 +2,8 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { FaGithub, FaLinkedin, FaTwitter, FaEnvelope } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
+import { FaSquareXTwitter } from "react-icons/fa6";
 
 const Footer = () => {
   return (
@@ -62,7 +63,7 @@ const Footer = () => {
                   <FaLinkedin className="cursor-pointer hover:scale-110 hover:text-gray-300 transition" />
                 </Link>
                 <Link href={"https://x.com/EmonHossain26"} target="_blank">
-                  <FaTwitter className="cursor-pointer hover:scale-110 hover:text-gray-300 transition" />
+                  <FaSquareXTwitter  className="cursor-pointer hover:scale-110 hover:text-gray-300 transition" />
                 </Link>
               </div>
             </div>

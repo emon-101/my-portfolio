@@ -2,9 +2,10 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { HiMenu, HiX } from "react-icons/hi";
 import Link from "next/link";
+import { FaSquareXTwitter } from "react-icons/fa6";
 
 const navLinks = [
   { name: "Home", href: "/" },
@@ -53,7 +54,7 @@ const Navbar = () => {
               <FaLinkedin className="hover:scale-110 transition" />
             </Link>
             <Link href="https://x.com/EmonHossain26" target="_blank">
-              <FaTwitter className="hover:scale-110 transition" />
+              <FaSquareXTwitter className="hover:scale-110 transition" />
             </Link>
           </div>
 
@@ -123,7 +124,7 @@ const Navbar = () => {
               <div className="flex gap-6 text-2xl text-white/80">
                 <FaGithub className="hover:scale-110 hover:text-white transition" />
                 <FaLinkedin className="hover:scale-110 hover:text-white transition" />
-                <FaTwitter className="hover:scale-110 hover:text-white transition" />
+                <FaSquareXTwitter className="hover:scale-110 hover:text-white transition" />
               </div>
             </motion.div>
           </>
