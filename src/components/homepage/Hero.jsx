@@ -2,12 +2,13 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { TypeAnimation } from "react-type-animation";
-import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
 import Link from "next/link";
+import { FaSquareXTwitter } from "react-icons/fa6";
 
 const Hero = () => {
   return (
-    <section className="relative min-h-screen flex items-center px-6 md:px-10 text-white overflow-hidden pt-20">
+    <section className="relative min-h-screen flex items-center px-6 md:px-10 text-white overflow-hidden py-20">
       {/* Background */}
       <div className="absolute inset-0 -z-10 bg-linear-to-br from-black via-[#0f172a] to-[#020617]" />
       <div className="absolute top-10 left-10 w-72 h-72 bg-purple-500 opacity-30 blur-3xl rounded-full" />
@@ -63,8 +64,8 @@ const Hero = () => {
 
           {/* Buttons */}
           <div className="mt-6 flex flex-wrap gap-4 justify-center md:justify-start">
-            <a
-              href="https://drive.google.com/file/d/1dp9A2U24BGzpqFfg-p78bNjJL1PtXevM/view?usp=sharing"
+            
+             <a href="https://drive.google.com/file/d/1xhaVe3IQZoPQaRa4fbxxTkZsIArtXX0g/view?usp=sharing"
               target="_blank"
               rel="noopener noreferrer"
               className="px-6 py-3 rounded-xl bg-linear-to-r from-blue-500 to-purple-500 hover:scale-105 transition"
@@ -89,7 +90,7 @@ const Hero = () => {
               <FaLinkedin className="cursor-pointer hover:scale-110 hover:text-gray-300 transition" />
             </Link>
             <Link href={"https://x.com/EmonHossain26"} target="_blank" aria-label="Twitter / X">
-              <FaTwitter className="cursor-pointer hover:scale-110 hover:text-gray-300 transition" />
+              <FaSquareXTwitter className="cursor-pointer hover:scale-110 hover:text-gray-300 transition" />
             </Link>
           </div>
         </motion.div>
@@ -104,7 +105,7 @@ const Hero = () => {
           <motion.div
             animate={{ y: [0, -15, 0] }}
             transition={{ duration: 4, repeat: Infinity }}
-            className="relative w-72 h-72 md:w-96 md:h-96"
+            className="relative w-60 h-60 sm:w-72 sm:h-72 md:w-96 md:h-96"
           >
             {/* Glow */}
             <div className="absolute inset-0 bg-blue-500 opacity-30 blur-2xl rounded-2xl" />
@@ -123,10 +124,10 @@ const Hero = () => {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1, duration: 0.6 }}
-              className="absolute -bottom-5 -left-5 sm:-left-8 bg-white/10 backdrop-blur-lg border border-white/20 rounded-xl px-4 py-3 shadow-lg"
+              className="absolute -bottom-3 left-1 sm:-bottom-5 sm:-left-5 md:-left-8 bg-white/10 backdrop-blur-lg border border-white/20 rounded-xl px-3 py-2 sm:px-4 sm:py-3 shadow-lg max-w-[calc(100%-0.5rem)]"
             >
-              <p className="text-lg font-bold text-blue-400 leading-none">10+</p>
-              <p className="text-xs text-gray-300 mt-1">Projects shipped</p>
+              <p className="text-base sm:text-lg font-bold text-blue-400 leading-none">10+</p>
+              <p className="text-[10px] sm:text-xs text-gray-300 mt-1 whitespace-nowrap">Projects shipped</p>
             </motion.div>
           </motion.div>
         </motion.div>
