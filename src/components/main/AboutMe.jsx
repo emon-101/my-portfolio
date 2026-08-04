@@ -105,7 +105,7 @@ const AboutMe = () => {
                 <FaLinkedin /> LinkedIn
               </a>
               <a
-                href="/resume.pdf"
+                href="/Emon_Hossain_Resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 text-sm bg-blue-500/20 hover:bg-blue-500/30 border border-blue-400/40 text-blue-300 px-4 py-2 rounded-lg transition"
