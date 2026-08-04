@@ -65,7 +65,7 @@ const Hero = () => {
           {/* Buttons */}
           <div className="mt-6 flex flex-wrap gap-4 justify-center md:justify-start">
             
-             <a href="https://drive.google.com/file/d/1xhaVe3IQZoPQaRa4fbxxTkZsIArtXX0g/view?usp=sharing"
+             <a href="https://drive.google.com/file/d/1mCCdnuG45wjf2CZju2BttISPBa6ND01X/view?usp=sharing"
               target="_blank"
               rel="noopener noreferrer"
               className="px-6 py-3 rounded-xl bg-linear-to-r from-blue-500 to-purple-500 hover:scale-105 transition"
